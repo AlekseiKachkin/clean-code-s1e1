@@ -13,63 +13,79 @@
       charset="utf-8"
     >
   </head>
-  <body>
-    <aside class="aaa">
-      <img src="./eisenhower-matrix.jpg" alt="Eisenhower matrix">
+  <body class="page">
+    <aside class="matrix">
+      <img 
+        src="./eisenhower-matrix.jpg"
+        alt="Eisenhower matrix"
+        class="matrix__img"
+        >
       <a
-        class="more_inf"
+        class="matrix__details"
         href="https://goal-life.com/page/method/matrix-eisenhower"
       >Want more details?</a>
     </aside>
-    <main class="centered-main-page-element">
-      <section id="topSectionForAddingElementToList">
-        <h3>Add Item</h3>
-        <article class="task-row-wrapper">
+    <main class="toDo">
+      <section>
+        <h3 class="sectionName">Add Item</h3>
+        <article class="task_new task">
           <input
-            id="new-task"
-            class="task"
+            id="newTask"
+            class="task__input"
             type="text"
           >
-          <button>Add</button>
+          <button class="task__add">Add</button>
         </article>
       </section>
       <section>
-        <h3>Todo</h3>
-        <div id="incompleteTasks">
-          <article>
-            <input type="checkbox">
-            <p class="task">Pay Bills</p>
-            <input type="text" class="task">
-            <button class="edit">Edit</button>
-            <button class="delete">
-              <img src="./remove.svg" alt="remove">
+        <h3 class="sectionName">Todo</h3>
+        <div id="incompleteTasks" class="tasksSet">
+          <article class="task_incomplete task">
+            <input type="checkbox" class="task__toggle">
+            <p class="task__text">Pay Bills</p>
+            <input type="text" class="task__input">
+            <button class="task__edit">Edit</button>
+            <button class="task__delete">
+              <img
+                src="./remove.svg"
+                alt="remove"
+                class="removeImg"
+              >
             </button>
           </article>
-          <article class="editMode">
-            <input type="checkbox">
-            <p class="task">Go Shopping</p>
+          <article class="task_editMode task_incomplete task">
+            <input type="checkbox" class="task__toggle">
+            <p class="task__text">Go Shopping</p>
             <input
               type="text"
               value="Go Shopping"
-              class="task"
+              class="task__input"
             >
-            <button class="edit">Save</button>
-            <button class="delete">
-              <img src="./remove.svg" alt="remove">
+            <button class="task__edit">Save</button>
+            <button class="task__delete">
+              <img
+                src="./remove.svg"
+                alt="remove"
+                class="removeImg"
+              >
             </button>
           </article>
         </div>
       </section>
       <section>
-        <h3>Completed</h3> 
-        <div id="completed-tasks">
-          <article>
-            <input type="checkbox" checked>
-            <p class="task">See the Doctor</p>
-            <input type="text" class="task">
-            <button class="edit">Edit</button>
-            <button class="delete">
-              <img src="./remove.svg" alt="remove">
+        <h3 class="sectionName">Completed</h3> 
+        <div id="completedTasks" class="tasksSet">
+          <article class="task_completed task">
+            <input type="checkbox" checked class="task__toggle">
+            <p class="task__text">See the Doctor</p>
+            <input type="text" class="task__input">
+            <button class="task__edit">Edit</button>
+            <button class="task__delete">
+              <img
+                src="./remove.svg"
+                alt="remove"
+                class="removeImg"
+              >
             </button>
           </article>
         </div>
