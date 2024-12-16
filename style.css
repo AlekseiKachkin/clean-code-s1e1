@@ -110,7 +110,7 @@
   }
 }
 
-.task__delete img {
+.task__delete .removeImg {
   height: 2em;
   transform: rotateZ(45deg);
   transition: transform 200ms ease-in;
