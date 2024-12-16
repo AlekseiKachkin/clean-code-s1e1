@@ -79,13 +79,14 @@ body {
   }
 }
 
-.task__label {
+.task__text {
+  margin: 0;
   padding-left: 10px;
   box-sizing: border-box;
   font-size: 18px;
 }
 
-.task__label,
+.task__text,
 .task__input {
   flex-grow: 1;
 }
@@ -118,12 +119,12 @@ body {
   }
 }
 
-.task_completed .task__label {
+.task_completed .task__text {
   text-decoration: line-through;
   color: #888;
 }
 
-.task_editMode .task__label {
+.task_editMode .task__text {
   display: none;
 }
 

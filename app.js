@@ -17,12 +17,12 @@ var completedTasksHolder=document.getElementById("completedTasks");//ul of #comp
 //New task list item
 var createNewTaskElement=function(taskString){
 
-  var listItem=document.createElement("li");
+  var article=document.createElement("article");
 
   //input (checkbox)
   var checkBox=document.createElement("input");//checkbox
   //label
-  var label=document.createElement("label");//label
+  var label=document.createElement("p");//label
   //input (text)
   var editInput=document.createElement("input");//text
   //button.edit
@@ -32,10 +32,10 @@ var createNewTaskElement=function(taskString){
   var deleteButton=document.createElement("button");//delete button
   var deleteButtonImg=document.createElement("img");//delete button image
 
-  listItem.classList.add('task', 'task_incomplete')
+  article.classList.add('task', 'task_incomplete')
 
   label.innerText=taskString;
-  label.classList.add('task__label');
+  label.classList.add('task__text');
 
   //Each elements, needs appending
   checkBox.type="checkbox";
@@ -53,12 +53,12 @@ var createNewTaskElement=function(taskString){
 
 
   //and appending.
-  listItem.append(checkBox);
-  listItem.append(label);
-  listItem.append(editInput);
-  listItem.append(editButton);
-  listItem.append(deleteButton);
-  return listItem;
+  article.append(checkBox);
+  article.append(label);
+  article.append(editInput);
+  article.append(editButton);
+  article.append(deleteButton);
+  return article;
 }
 
 
@@ -67,11 +67,11 @@ var addTask=function(){
   console.log("Add Task...");
   //Create a new list item with the text from the #newTask:
   if (!taskInput.value) return;
-  var listItem=createNewTaskElement(taskInput.value);
+  var article=createNewTaskElement(taskInput.value);
 
-  //Append listItem to incompleteTaskHolder
-  incompleteTaskHolder.append(listItem);
-  bindTaskEvents(listItem, taskCompleted);
+  //Append article to incompleteTaskHolder
+  incompleteTaskHolder.append(article);
+  bindTaskEvents(article, taskCompleted);
 
   taskInput.value="";
 
@@ -84,11 +84,11 @@ var editTask=function(){
   console.log("Change 'edit' to 'save'");
 
 
-  var listItem=this.parentNode;
-  var editInput=listItem.querySelector('.task__input');
-  var label=listItem.querySelector(".task__label");
-  var editBtn=listItem.querySelector(".task__edit");
-  var containsClass=listItem.classList.contains("task_editMode");
+  var article=this.parentNode;
+  var editInput=article.querySelector('.task__input');
+  var label=article.querySelector(".task__text");
+  var editBtn=article.querySelector(".task__edit");
+  var containsClass=article.classList.contains("task_editMode");
   //If class of the parent is .task_editMode
   if(containsClass){
     //switch to .task_editMode
@@ -101,7 +101,7 @@ var editTask=function(){
   }
 
   //toggle .task_editMode on the parent.
-  listItem.classList.toggle("task_editMode");
+  article.classList.toggle("task_editMode");
 };
 
 
@@ -109,8 +109,8 @@ var editTask=function(){
 var deleteTask=function(){
   console.log("Delete Task...");
 
-  var listItem=this.parentNode;
-  listItem.remove();
+  var article=this.parentNode;
+  article.remove();
 
 }
 
@@ -120,11 +120,11 @@ var taskCompleted=function(){
   console.log("Complete Task...");
 
   //Append the task list item to the #completedTasks
-  var listItem=this.parentNode;
-  listItem.classList.toggle('task_completed');
-  listItem.classList.toggle('task_incomplete');
-  completedTasksHolder.append(listItem);
-  bindTaskEvents(listItem, taskIncomplete);
+  var article=this.parentNode;
+  article.classList.toggle('task_completed');
+  article.classList.toggle('task_incomplete');
+  completedTasksHolder.append(article);
+  bindTaskEvents(article, taskIncomplete);
 }
 
 
@@ -133,12 +133,12 @@ var taskIncomplete=function(){
   //Mark task as incomplete.
   //When the checkbox is unchecked
   //Append the task list item to the #incompleteTasks.
-  var listItem=this.parentNode;
-  console.log(listItem)
-  listItem.classList.toggle('task_completed');
-  listItem.classList.toggle('task_incomplete');
-  incompleteTaskHolder.append(listItem);
-  bindTaskEvents(listItem,taskCompleted);
+  var article=this.parentNode;
+  console.log(article)
+  article.classList.toggle('task_completed');
+  article.classList.toggle('task_incomplete');
+  incompleteTaskHolder.append(article);
+  bindTaskEvents(article,taskCompleted);
 }
 
 
